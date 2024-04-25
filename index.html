@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Canteen Voucher App</title>
+</head>
+<body>
+
+    <section class="login-container">
+        <h2>Login</h2>
+        <label>
+            Username
+            <input type="text" id="username" placeholder="Username">
+        </label>
+        <label>
+            Password
+            <input type="password" id="password" placeholder="Password">
+        </label>
+        <button id="login-btn">Login</button>
+    </section>
+
+    <section class="shift-controller-container hidden">
+         <h2>Issue Voucher</h2>
+         <label>
+             Staff Name
+             <input type="text" id="staff-name" placeholder="Staff Name">
+         </label>
+         <label>
+             Staff Email (optional)
+             <input type="email" id="staff-email" placeholder="Staff Email (optional)">
+         </label>
+         <button id="issue-btn">Issue Voucher</button>
+         <div id="voucher-code"></div>
+    </section>
+
+    <section class="canteen-staff-container hidden">
+        <h2>Validate Voucher</h2>
+        <button id="eloops-btn">Eloops Voucher</button>
+        <button id="sc-btn">Shift Controller Voucher</button>
+        <div id="voucher-dialog" class="hidden">
+            <label>
+                Enter Voucher Code
+                <input type="text" id="voucher-input" placeholder="Enter Voucher Code">
+            </label>
+            <button id="validate-btn">Validate</button>
+            <div id="voucher-response"></div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
