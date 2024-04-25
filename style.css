@@ -1,35 +1,48 @@
-/* Basic Styling */
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
-  }
-  
-  .container {
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#myTitle {
+    position: absolute;
+    font-size: 3em; /* larger text */
+    top: 0;
+    font-weight: 300; /* thinner text */
+    text-shadow: none; /* no text shadow */
+    color: #007BFF; /* bright blue */
+    text-transform: uppercase; /* all letters are capital */
+    letter-spacing: 2px; /* spaces out the letters a bit */
+    font-family: 'Arial', sans-serif; /* a clean, simple font */
+}
+
+
+.container {
     padding: 20px;
-    border: solid 1px #ccc;
+    border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
-  }
-  
-  input[type="text"], input[type="email"], input[type="password"], 
-  button {
+}
+
+input[type="text"], input[type="email"], input[type="password"], button {
     padding: 8px;
-    border: solid 1px #ccc;
-  }
-  
-  .button {
+    border: 1px solid #ccc;
+}
+
+.button {
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .hidden {
+}
+
+.hidden {
     display: none;
-  }
-  
+}
