@@ -6,35 +6,49 @@
     <link rel="stylesheet" href="style.css">
     <title>Canteen Voucher App</title>
 </head>
-<body>  
+<body>
     <header id="myTitle">
         <h1>Voucher Watch</h1>
     </header>
 
-    <section class="login-container container">
+    <div id="error-display"></div> 
+
+    <section class="landing-page container">
         <article>
+            <h2>Choose your role:</h2>
+            <button id="shift-controller-btn" class="button">Shift Controller</button>
+            <button id="canteen-manager-btn" class="button">Canteen Manager</button>
+        </article>
+    </section>
+
+    <section class="login-container container hidden">
+        <article>
+            <h2>Login</h2>
             <input type="text" id="username" placeholder="Username" required>
             <input type="password" id="password" placeholder="Password" required>
             <button type='submit' class="button" id="login-btn">Login</button>
         </article>
     </section>
 
-    <section class="shift-controller-container hidden container">
+    <section class="shift-controller-container container hidden">
         <article>
+           <h2>Issue Voucher</h2>
             <input type="text" id="staff-name" placeholder="Staff Name" required>
             <input type="email" id="staff-email" placeholder="Staff Email" required>
             <button type='submit' class="button" id="issue-btn">Issue Voucher</button>
+            <div id="voucher-code"></div> 
         </article>
     </section>
 
-    <section class="canteen-staff-container hidden container">
+    <section class="canteen-staff-container container hidden">
         <article>
+            <h2>Validate Voucher</h2>
             <input type="text" id="voucher-input" placeholder="Enter Voucher Code" required>
-            <button id="eloops-btn" class="button">Eloops Voucher</button>
-            <button id="sc-btn" class="button">Shift Controller Voucher</button>
+            <button class="button" id="validate-btn">Validate Voucher</button>
+            <div id="voucher-response"></div>
         </article>
     </section>
 
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
 </body>
 </html>

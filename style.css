@@ -1,38 +1,26 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; 
+    justify-content: center; 
     height: 100vh;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    position: relative;
+    background-color: #f0f0f0; /* Example light background */
 }
 
 #myTitle {
-    position: absolute;
-    font-size: 3em; /* larger text */
-    top: 0;
-    font-weight: 300; /* thinner text */
-    text-shadow: none; /* no text shadow */
-    color: #007BFF; /* bright blue */
-    text-transform: uppercase; /* all letters are capital */
-    letter-spacing: 2px; /* spaces out the letters a bit */
-    font-family: 'Arial', sans-serif; /* a clean, simple font */
+    font-size: 3em;
+    color: #007BFF; 
 }
 
-
 .container {
+    background-color: white;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
-}
-
-input[type="text"], input[type="email"], input[type="password"], button {
-    padding: 8px;
-    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .button {
@@ -40,9 +28,18 @@ input[type="text"], input[type="email"], input[type="password"], button {
     color: white;
     border: none;
     border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
 }
 
 .hidden {
     display: none;
+}
+
+#error-display {
+    color: #c00; 
+    background-color: #fdd;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #c00;
 }
