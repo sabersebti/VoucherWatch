@@ -1,2 +1,2 @@
 # VoucherWatch
-A canteen system to generate and trach incentive voucher for the company employees
+A canteen system to generate and track incentive voucher for the company employees
