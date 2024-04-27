@@ -11,7 +11,7 @@
         <h1>Voucher Watch</h1>
     </header>
 
-    <header id="role-heading"></header>
+    <header id="role-heading"></header> 
     <div id="error-display"></div> 
 
     <section class="landing-page container">
@@ -43,10 +43,19 @@
 
     <section class="canteen-staff-container container hidden">
         <article>
-            <h2>Validate Voucher</h2>
-            <input type="text" id="voucher-input" placeholder="Enter Voucher Code" required>
-            <button class="button" id="validate-btn">Validate Voucher</button>
-            <div id="voucher-response"></div>
+            <h2>Canteen Manager</h2> 
+            <div class="canteen-subsection"> 
+                <h3>Validate Voucher</h3>
+                <input type="text" id="voucher-input" placeholder="Enter Voucher Code" required>
+                <button class="button" id="validate-btn">Validate Voucher</button>
+                <div id="voucher-response"></div>
+            </div>
+            <div class="canteen-subsection"> 
+                <h3>Redeem Eloops Voucher</h3>
+                <input type="text" id="eloops-code" placeholder="Enter Eloops Code" required>
+                <button class="button" id="redeem-eloops-btn">Redeem Eloops</button>
+                <div id="eloops-response"></div> 
+            </div>
         </article>
     </section>
 
