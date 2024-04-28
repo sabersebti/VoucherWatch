@@ -5,9 +5,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh; /* Changed to min-height for better responsiveness */
     margin: 0;
     background: linear-gradient(to bottom right, #ff9999, #99ccff); /* Gradient background */
+    color: #333; /* Darker text color for better readability */
 }
 
 /* Styles for Burger Images */
@@ -21,6 +22,7 @@ body {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1000; /* Ensure burger images are above other content */
 }
 
 .left-burger-container {
@@ -31,14 +33,30 @@ body {
     right: 20px; /* Adjust right position */
 }
 
-/* Other styles for your elements */
+/* Styles for the Title */
 #myTitle {
     font-size: 3em;
-    color: #007BFF;
+    color: #202020; /* Anthracite color */
     margin-bottom: 20px;
     text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+    opacity: 0;
+    transform: scale(0.5); /* Initially scale down */
+    animation: titleAnimation 0.8s ease forwards;
 }
 
+@keyframes titleAnimation {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Other styles for your elements */
 .container {
     background-color: #ffffff; /* White background */
     padding: 20px;
