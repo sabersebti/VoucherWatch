@@ -1,35 +1,72 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; 
-    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0; /* Example light background */
+    background: linear-gradient(to bottom right, #ff9999, #99ccff); /* Gradient background */
 }
 
+/* Styles for Burger Images */
+.burger-image {
+    width: 300px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.left-burger-container,
+.right-burger-container {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.left-burger-container {
+    left: 20px; /* Adjust left position */
+}
+
+.right-burger-container {
+    right: 20px; /* Adjust right position */
+}
+
+/* Other styles for your elements */
 #myTitle {
     font-size: 3em;
-    color: #007BFF; 
+    color: #007BFF;
+    margin-bottom: 20px;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
 }
 
 .container {
-    background-color: white;
+    background-color: #ffffff; /* White background */
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #007BFF; /* Blue border */
+    border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slightly adjusted shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition for box-shadow */
+}
+
+.container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    transform: translateY(-5px); /* Lift effect on hover */
 }
 
 .button {
-    background-color: #007bff;
-    color: white;
+    background-color: #007BFF; /* Blue button */
+    color: #ffffff; /* White text */
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05); /* Scale effect on hover */
 }
 
 .hidden {
@@ -37,9 +74,23 @@ body {
 }
 
 #error-display {
-    color: #c00; 
-    background-color: #fdd;
+    color: #ff0000; /* Red error text */
+    background-color: #ffe6e6; /* Light red background */
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #c00;
+    border: 1px solid #ff9999; /* Red border */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1); /* Red shadow */
+}
+
+/* Role Heading Styles */
+#role-heading {
+    font-size: 1.5em; /* Larger font size */
+    font-weight: bold; /* Bold text */
+    color: #007BFF; /* Blue color */
+    text-transform: uppercase; /* Uppercase text */
+    margin-bottom: 15px; /* Add some space below */
+    text-align: center; /* Center-align text */
+    border-bottom: 2px solid #007BFF; /* Blue underline */
+    padding-bottom: 5px; /* Space below the underline */
 }
