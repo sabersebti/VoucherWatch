@@ -14,7 +14,7 @@ body {
 
 /* Styles for Food Images */
 .food-image {
-    width: 300px; /* Adjust size as needed */
+    width: 300px; /* Default size */
     height: auto; /* Maintain aspect ratio */
     max-width: 100%; /* Make the image responsive */
 }
