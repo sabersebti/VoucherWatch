@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
         shiftControllerBtn: document.getElementById('shift-controller-btn'),
         canteenManagerBtn: document.getElementById('canteen-manager-btn'),
         errorDisplay: document.getElementById('error-display'),
-        roleHeading: document.getElementById('role-heading')
+        roleHeading: document.getElementById('role-heading'),
+        myTitle: document.getElementById('myTitle') // Added title element reference
     };
 
     async function handleAPI(endpoint, data) {
@@ -97,13 +98,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     elements.shiftControllerBtn.addEventListener('click', () => {
-        showSection('shift-controller-container');
+        showSection('login-container');
         elements.roleHeading.textContent = 'Shift Controller';
+        elements.myTitle.classList.add('hidden'); // Hide the title
     });
 
     elements.canteenManagerBtn.addEventListener('click', () => {
-        showSection('canteen-staff-container');
+        showSection('login-container');
         elements.roleHeading.textContent = 'Canteen Manager';
+        elements.myTitle.classList.add('hidden'); // Hide the title
     });
 
     function showSection(sectionClass) {

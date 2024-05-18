@@ -1,3 +1,4 @@
+
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -5,32 +6,85 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* Changed to min-height for better responsiveness */
+    height: 100vh;
     margin: 0;
-    background: linear-gradient(to bottom right, #ff9999, #99ccff); /* Gradient background */
-    color: #333; /* Darker text color for better readability */
+    background: linear-gradient(to bottom right, #ff9999, #99ccff);
+    color: #333;
+    overflow: hidden; /* Prevent scrolling */
 }
 
-/* Styles for Burger Images */
-.burger-image {
+/* Styles for Food Images */
+.food-image {
     width: 300px; /* Adjust size as needed */
     height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Make the image responsive */
 }
 
-.left-burger-container,
-.right-burger-container {
+.left-food-container,
+.right-food-container {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1000; /* Ensure burger images are above other content */
+    z-index: 1000;
 }
 
-.left-burger-container {
-    left: 20px; /* Adjust left position */
+
+/* Container Styles */
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 2px solid #007BFF;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    max-width: 600px; /* Limit container width */
+    width: 90%; /* Make the container responsive */
 }
 
-.right-burger-container {
-    right: 20px; /* Adjust right position */
+.container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Button Styles */
+.button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Full width button */
+    height: 50px; /* Same height for all buttons */
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+
+/* Center "Shift Controller" and "Canteen Manager" containers */
+.shift-controller-container,
+.canteen-staff-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items at the start */
+    padding-top: 100px; /* Add padding to position higher */
+    margin-top: 50px; /* Add margin to position higher */
+    max-width: 600px; /* Limit container width */
+    width: 90%; /* Make the container responsive */
+}
+
+.left-food-container {
+    left: 20px;
+}
+
+.right-food-container {
+    right: 20px;
 }
 
 /* Styles for the Title */
@@ -38,9 +92,9 @@ body {
     font-size: 3em;
     color: #202020; /* Anthracite color */
     margin-bottom: 20px;
-    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
     opacity: 0;
-    transform: scale(0.5); /* Initially scale down */
+    transform: scale(0.5);
     animation: titleAnimation 0.8s ease forwards;
 }
 
@@ -55,60 +109,66 @@ body {
     }
 }
 
-
-/* Other styles for your elements */
-.container {
-    background-color: #ffffff; /* White background */
-    padding: 20px;
-    border: 2px solid #007BFF; /* Blue border */
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slightly adjusted shadow */
-    transition: box-shadow 0.3s ease; /* Smooth transition for box-shadow */
+/* Increase size of "Select your role" container */
+.landing-page.container {
+    width: 80%;
+    max-width: 600px; /* Limit container width */
 }
 
-.container:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-    transform: translateY(-5px); /* Lift effect on hover */
+/* Match size of inner elements to container size */
+.landing-page.container article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
-.button {
-    background-color: #007BFF; /* Blue button */
-    color: #ffffff; /* White text */
-    border: none;
+/* Center inner elements */
+.landing-page.container article > * {
+    margin-top: 20px; /* Add margin between buttons */
+    width: 100%; /* Make the buttons fill the container width */
+    max-width: 400px; /* Set a maximum width for buttons */
+}
+
+
+/* Center and position the input fields higher */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    display: block;
+    margin: 0 auto 20px auto; /* Center the input and add bottom margin */
+    padding: 10px;
+    width: 80%; /* Adjust width as needed */
+    max-width: 400px; /* Limit the width */
+    border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 12px 24px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
 }
 
-.button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-    transform: scale(1.05); /* Scale effect on hover */
-}
-
+/* Hidden Class */
 .hidden {
     display: none;
 }
 
+/* Error Display Styles */
 #error-display {
-    color: #ff0000; /* Red error text */
-    background-color: #ffe6e6; /* Light red background */
+    color: #ff0000;
+    background-color: #ffe6e6;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ff9999; /* Red border */
+    border: 1px solid #ff9999;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1); /* Red shadow */
+    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1);
 }
 
 /* Role Heading Styles */
 #role-heading {
-    font-size: 1.5em; /* Larger font size */
-    font-weight: bold; /* Bold text */
-    color: #007BFF; /* Blue color */
-    text-transform: uppercase; /* Uppercase text */
-    margin-bottom: 15px; /* Add some space below */
-    text-align: center; /* Center-align text */
-    border-bottom: 2px solid #007BFF; /* Blue underline */
-    padding-bottom: 5px; /* Space below the underline */
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #007BFF;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
 }
