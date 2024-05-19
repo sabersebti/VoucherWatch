@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         redeemEloopsBtn: document.getElementById('redeem-eloops-btn'),
         printVoucherBtn: document.getElementById('print-voucher-btn'),
         printValidatedVoucherBtn: document.getElementById('print-validated-voucher-btn'),
+        generateTestVoucherBtn: document.getElementById('generate-test-voucher-btn'),
         shiftControllerBtn: document.getElementById('shift-controller-btn'),
         canteenManagerBtn: document.getElementById('canteen-manager-btn'),
         errorDisplay: document.getElementById('error-display'),
@@ -57,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (username === demoCredentials['shift_controller'].username && password === demoCredentials['shift_controller'].password) {
             showSection('shift-controller-container');
             elements.roleHeading.textContent = 'Shift Controller';
-            document.getElementById('myTitle').style.display = 'none'; // Hide title
+            hideTitle();
         } else if (username === demoCredentials['canteen_staff'].username && password === demoCredentials['canteen_staff'].password) {
             showSection('canteen-staff-container');
             elements.roleHeading.textContent = 'Canteen Manager';
-            document.getElementById('myTitle').style.display = 'none'; // Hide title
+            hideTitle();
         } else {
             elements.errorDisplay.textContent = 'Invalid username or password.';
         }
@@ -103,21 +104,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     elements.printVoucherBtn.addEventListener('click', () => {
-        printVoucher(elements.voucherCodeDiv.textContent);
+        printVoucher(elements.voucherCodeDiv.textContent, elements.staffNameInput.value, elements.staffEmailInput.value);
     });
 
     elements.printValidatedVoucherBtn.addEventListener('click', () => {
-        printVoucher(elements.voucherResponseDiv.textContent);
+        printVoucher(elements.voucherResponseDiv.textContent, elements.staffNameInput.value, elements.staffEmailInput.value);
+    });
+
+    elements.generateTestVoucherBtn.addEventListener('click', () => {
+        const testVoucherCode = 'TEST123456';
+        elements.voucherCodeDiv.textContent = testVoucherCode;
+        elements.printVoucherBtn.classList.remove('hidden'); // Show print button
     });
 
     elements.shiftControllerBtn.addEventListener('click', () => {
         showSection('login-container');
         elements.roleHeading.textContent = 'Shift Controller Login';
+        hideTitle();
     });
 
     elements.canteenManagerBtn.addEventListener('click', () => {
         showSection('login-container');
         elements.roleHeading.textContent = 'Canteen Manager Login';
+        hideTitle();
     });
 
     function showSection(sectionClass) {
@@ -127,11 +136,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector(`.${sectionClass}`).classList.remove('hidden');
     }
 
-    function printVoucher(content) {
+    function hideTitle() {
+        document.getElementById('myTitle').style.display = 'none';
+    }
+
+    function printVoucher(voucherCode, staffName, staffEmail) {
         const printWindow = window.open('', '', 'height=600,width=800');
-        printWindow.document.write('<html><head><title>Voucher</title></head><body>');
+        printWindow.document.write('<html><head><title>Voucher</title><style>table { width: 100%; border-collapse: collapse; } th, td { border: 1px solid #333; padding: 10px; text-align: left; } th { background-color: #f2f2f2; }</style></head><body>');
         printWindow.document.write('<h1>Voucher</h1>');
-        printWindow.document.write(`<p>${content}</p>`);
+        printWindow.document.write('<table>');
+        printWindow.document.write('<tr><th>Name</th><th>Email</th><th>Voucher Code</th></tr>');
+        printWindow.document.write(`<tr><td>${staffName}</td><td>${staffEmail}</td><td>${voucherCode}</td></tr>`);
+        printWindow.document.write('</table>');
         printWindow.document.write('</body></html>');
         printWindow.document.close();
         printWindow.print();

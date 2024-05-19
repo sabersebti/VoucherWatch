@@ -93,8 +93,6 @@ body {
     height: 60px; /* Same height for all buttons */
     font-size: 1.5em;
     font-weight: bold;
-
-
 }
 
 .button:hover {
@@ -103,14 +101,24 @@ body {
 }
 
 /* Center "Shift Controller" and "Canteen Manager" containers */
-.shift-controller-container,
-.canteen-staff-container {
+.shift-controller-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Align items at the start */
     padding-top: 100px; /* Add padding to position higher */
     margin-top: 50px; /* Add margin to position higher */
+    max-width: 600px; /* Limit container width */
+    width: 90%; /* Make the container responsive */
+}
+
+.canteen-staff-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items at the start */
+    padding-top: 50px; /* Less padding to position higher */
+    margin-top: 20px; /* Less margin to position higher */
     max-width: 600px; /* Limit container width */
     width: 90%; /* Make the container responsive */
 }

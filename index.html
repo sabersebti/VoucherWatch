@@ -9,21 +9,21 @@
 <body>
     <!-- Left Food Image -->
     <div class="left-food-container">
-        <img src="food1.jpg" alt="Left Food" class="food-image">
+        <img src="food 1.jpg" alt="Left Food" class="food-image">
     </div>
 
     <!-- Header Section -->
-    <header id="myTitle">   
+    <header id="myTitle">
         <h1>VoucherWatch</h1>
     </header>
 
     <!-- Right Food Image -->
     <div class="right-food-container">
-        <img src="food2.jpg" alt="Right Food" class="food-image">
+        <img src="food 2.jpg" alt="Right Food" class="food-image">
     </div>
 
-    <header id="role-heading"></header> 
-    <div id="error-display"></div> 
+    <header id="role-heading"></header>
+    <div id="error-display"></div>
 
     <section class="landing-page container">
         <article>
@@ -48,26 +48,27 @@
             <input type="text" id="staff-name" placeholder="Staff Name" required>
             <input type="email" id="staff-email" placeholder="Staff Email" required>
             <button type='submit' class="button" id="issue-btn">Generate Voucher</button>
-            <div id="voucher-code"></div> 
+            <div id="voucher-code"></div>
             <button class="button hidden" id="print-voucher-btn">Print Voucher</button>
+            <button class="button" id="generate-test-voucher-btn">Generate Test Voucher</button>
         </article>
     </section>
 
     <section class="canteen-staff-container container hidden">
         <article>
-            <h2>Canteen Manager</h2> 
-            <div class="canteen-subsection"> 
+            <h2>Canteen Manager</h2>
+            <div class="canteen-subsection">
                 <h3>Validate Voucher</h3>
                 <input type="text" id="voucher-input" placeholder="Enter Voucher Code" required>
                 <button class="button" id="validate-btn">Validate Voucher</button>
                 <div id="voucher-response"></div>
                 <button class="button hidden" id="print-validated-voucher-btn">Print Validated Voucher</button>
             </div>
-            <div class="canteen-subsection"> 
+            <div class="canteen-subsection">
                 <h3>Redeem Eloops Voucher</h3>
                 <input type="text" id="eloops-code" placeholder="Enter Eloops Code" required>
                 <button class="button" id="redeem-eloops-btn">Redeem Eloops</button>
-                <div id="eloops-response"></div> 
+                <div id="eloops-response"></div>
             </div>
         </article>
     </section>
