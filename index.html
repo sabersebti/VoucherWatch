@@ -9,7 +9,7 @@
 <body>
     <!-- Left Food Image -->
     <div class="left-food-container">
-        <img src="food 1.jpg" alt="Left Food" class="food-image">
+        <img src="food1.jpg" alt="Left Food" class="food-image">
     </div>
 
     <!-- Header Section -->
@@ -19,7 +19,7 @@
 
     <!-- Right Food Image -->
     <div class="right-food-container">
-        <img src="food 2.jpg" alt="Right Food" class="food-image">
+        <img src="food2.jpg" alt="Right Food" class="food-image">
     </div>
 
     <header id="role-heading"></header> 
@@ -27,7 +27,7 @@
 
     <section class="landing-page container">
         <article>
-            <h2>Select your role:</h2>
+            <h2>Choose your role:</h2>
             <button id="shift-controller-btn" class="button">Shift Controller</button>
             <button id="canteen-manager-btn" class="button">Canteen Manager</button>
         </article>
@@ -49,6 +49,7 @@
             <input type="email" id="staff-email" placeholder="Staff Email" required>
             <button type='submit' class="button" id="issue-btn">Generate Voucher</button>
             <div id="voucher-code"></div> 
+            <button class="button hidden" id="print-voucher-btn">Print Voucher</button>
         </article>
     </section>
 
@@ -60,6 +61,7 @@
                 <input type="text" id="voucher-input" placeholder="Enter Voucher Code" required>
                 <button class="button" id="validate-btn">Validate Voucher</button>
                 <div id="voucher-response"></div>
+                <button class="button hidden" id="print-validated-voucher-btn">Print Validated Voucher</button>
             </div>
             <div class="canteen-subsection"> 
                 <h3>Redeem Eloops Voucher</h3>

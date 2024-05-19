@@ -10,11 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
         loginBtn: document.getElementById('login-btn'),
         issueBtn: document.getElementById('issue-btn'),
         validateBtn: document.getElementById('validate-btn'),
+        redeemEloopsBtn: document.getElementById('redeem-eloops-btn'),
+        printVoucherBtn: document.getElementById('print-voucher-btn'),
+        printValidatedVoucherBtn: document.getElementById('print-validated-voucher-btn'),
         shiftControllerBtn: document.getElementById('shift-controller-btn'),
         canteenManagerBtn: document.getElementById('canteen-manager-btn'),
         errorDisplay: document.getElementById('error-display'),
-        roleHeading: document.getElementById('role-heading'),
-        myTitle: document.getElementById('myTitle') // Added title element reference
+        roleHeading: document.getElementById('role-heading')
+    };
+
+    const demoCredentials = {
+        'shift_controller': { username: 'shiftcontroller', password: 'shift123' },
+        'canteen_staff': { username: 'canteenmanager', password: 'canteen123' }
     };
 
     async function handleAPI(endpoint, data) {
@@ -39,28 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     elements.loginBtn.addEventListener('click', async () => {
-        if (!elements.usernameInput.value || !elements.passwordInput.value) {
+        const username = elements.usernameInput.value;
+        const password = elements.passwordInput.value;
+
+        if (!username || !password) {
             elements.errorDisplay.textContent = 'Please enter both username and password.';
             return;
         }
 
-        const loginResult = await handleAPI('/login', {
-            username: elements.usernameInput.value,
-            password: elements.passwordInput.value
-        });
-
-        if (loginResult && loginResult.success) {
-            const role = loginResult.role;
-
-            if (role === 'shift_controller') {
-                showSection('shift-controller-container');
-                elements.roleHeading.textContent = 'Shift Controller';
-            } else if (role === 'canteen_staff') {
-                showSection('canteen-staff-container');
-                elements.roleHeading.textContent = 'Canteen Manager';
-            } else {
-                elements.errorDisplay.textContent = 'Invalid role received.';
-            }
+        if (username === demoCredentials['shift_controller'].username && password === demoCredentials['shift_controller'].password) {
+            showSection('shift-controller-container');
+            elements.roleHeading.textContent = 'Shift Controller';
+            document.getElementById('myTitle').style.display = 'none'; // Hide title
+        } else if (username === demoCredentials['canteen_staff'].username && password === demoCredentials['canteen_staff'].password) {
+            showSection('canteen-staff-container');
+            elements.roleHeading.textContent = 'Canteen Manager';
+            document.getElementById('myTitle').style.display = 'none'; // Hide title
         } else {
             elements.errorDisplay.textContent = 'Invalid username or password.';
         }
@@ -79,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (result) {
             elements.voucherCodeDiv.textContent = result.code || 'Voucher code issued';
+            elements.printVoucherBtn.classList.remove('hidden'); // Show print button
         }
     });
 
@@ -94,19 +96,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (result) {
             elements.voucherResponseDiv.textContent = result.valid ? 'Valid Voucher' : 'Invalid Voucher';
+            if (result.valid) {
+                elements.printValidatedVoucherBtn.classList.remove('hidden'); // Show print button
+            }
         }
+    });
+
+    elements.printVoucherBtn.addEventListener('click', () => {
+        printVoucher(elements.voucherCodeDiv.textContent);
+    });
+
+    elements.printValidatedVoucherBtn.addEventListener('click', () => {
+        printVoucher(elements.voucherResponseDiv.textContent);
     });
 
     elements.shiftControllerBtn.addEventListener('click', () => {
         showSection('login-container');
-        elements.roleHeading.textContent = 'Shift Controller';
-        elements.myTitle.classList.add('hidden'); // Hide the title
+        elements.roleHeading.textContent = 'Shift Controller Login';
     });
 
     elements.canteenManagerBtn.addEventListener('click', () => {
         showSection('login-container');
-        elements.roleHeading.textContent = 'Canteen Manager';
-        elements.myTitle.classList.add('hidden'); // Hide the title
+        elements.roleHeading.textContent = 'Canteen Manager Login';
     });
 
     function showSection(sectionClass) {
@@ -114,5 +125,15 @@ document.addEventListener('DOMContentLoaded', () => {
             section.classList.add('hidden');
         });
         document.querySelector(`.${sectionClass}`).classList.remove('hidden');
+    }
+
+    function printVoucher(content) {
+        const printWindow = window.open('', '', 'height=600,width=800');
+        printWindow.document.write('<html><head><title>Voucher</title></head><body>');
+        printWindow.document.write('<h1>Voucher</h1>');
+        printWindow.document.write(`<p>${content}</p>`);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
     }
 });
